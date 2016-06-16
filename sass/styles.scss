@@ -1,38 +1,91 @@
 // Resets, Clearfix, etc
 
+@import "partials/_clearfix";
+@import "partials/_reset";
+
 // Variables
- 
-// Media Query Ranges 
- 
+
+$darkColor: black;
+$lightColor: white;
+$brightColor: orange;
+$widthMedium: 500px;
+$widthLarge: 800px;
+
+// Media Query Ranges
+
+$medium: "(min-width: 600px) and (max-width: 900px)";
+$large: "(min-width: 900px)";
+
 // Mixins
+
+@mixin medium {
+  @media #{$medium}{
+    @content;
+  }
+}
+
+@mixin large {
+  @media #{$large}{
+    @content;
+  }
+}
 
 // Styles
 body{
-  background-color: orange;
+  background-color: $brightColor;
   text-align: center;
-  color: #EEE;
+  color: $darkColor;
+  font-size: 55px;
+
+  @include medium{
+    background-color: $brightColor;
+    color: $lightColor;
+  }
+  @include large{
+    background-color: $darkColor;
+    color: $brightColor;
+  }
 }
- 
+
 h1, h2, h3, h4{
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
 }
- 
+
 h1{
   padding: 20px;
 }
- 
+
 h2{
- 
+
 }
- 
- 
+
+
 .block_family{
   max-width:350px;
   margin:auto;
+
+  @include medium{
+    max-width: $widthMedium;
+  }
+
+  @include large{
+    max-width: $widthLarge;
+  }
 }
- 
+
 .block_family li{
-  background-color: #222;
+  background-color: $darkColor;
   margin-bottom: 20px;
   padding: 20px;
+  color: $lightColor;
+  font-size: 35px;
+
+  @include medium{
+    background-color: $lightColor;
+    color: $brightColor;
+  }
+  @include large{
+    background-color: $brightColor;
+    color: $darkColor;
+  }
 }
