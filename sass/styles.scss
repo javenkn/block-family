@@ -31,6 +31,10 @@ $large: "(min-width: 900px)";
 }
 
 // Styles
+*{
+  box-sizing: border-box;
+}
+
 body{
   background-color: $brightColor;
   text-align: center;
@@ -83,9 +87,23 @@ h2{
   @include medium{
     background-color: $lightColor;
     color: $brightColor;
+    float: left;
+    width: 49%;
+    margin: 0.5%;
+
+    &:nth-child(2n+1){
+      background-color: $darkColor;
+    }
   }
   @include large{
     background-color: $brightColor;
     color: $darkColor;
+    float: left;
+    width: 32%;
+    margin: 0.66%;
+
+    &:nth-child(3n+2){
+      background-color: $lightColor;
+    }
   }
 }
